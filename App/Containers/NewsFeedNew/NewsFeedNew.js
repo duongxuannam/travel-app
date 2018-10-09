@@ -1,13 +1,17 @@
 import React, { PureComponent } from 'react';
 import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Swiper from 'react-native-swiper'
+import { NavigationActions } from 'react-navigation'
+
+import { connect } from 'react-redux'
 import FastImage from 'react-native-fast-image'
-import { Images, Colors, Metrics } from '../../Themes'
+import AppActions from '../../Redux/AppRedux'
+import {  Colors } from '../../Themes'
 import { normalize } from '../../Themes/Metrics'
 
 data = [{ id: 1 }, { id: 2 }]
 
-export default class NewsFeed extends PureComponent {
+ class NewsFeed extends PureComponent {
 
   constructor(props) {
     super(props)
@@ -80,10 +84,15 @@ export default class NewsFeed extends PureComponent {
       </View>
     )
   }
+ luuApp = () => this.props.luuApp()
 
-  render() {
+
+render() {
     return (
       <ScrollView>
+        <TouchableOpacity onPress={this.luuApp} >
+          <Text>click</Text>
+        </TouchableOpacity>
         <View flex={1} style={{ marginHorizontal: normalize(8) }}>
 
           {/* swiper */}
@@ -200,3 +209,11 @@ export default class NewsFeed extends PureComponent {
     )
   }
 }
+
+
+const mapDispatchToProps = (dispatch) => ({
+  luuApp: () => dispatch(AppActions.luuApp()),
+  go : ()=>dispatch(NavigationActions.navigate({ routeName: 'LoginNavigation'}))
+})
+
+export default connect(null, mapDispatchToProps)(NewsFeed)

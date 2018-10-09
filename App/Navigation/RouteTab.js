@@ -1,12 +1,10 @@
 
 import React from 'react'
-import { Image } from 'react-native'
 import {  createStackNavigator } from 'react-navigation'
 import Community from '../Containers/Community'
 import NewsFeed from '../Containers/NewsFeed'
 import User from '../Containers/User'
 import Video from '../Containers/Video'
-import { Images } from '../Themes'
 
 export const CommunityNavigation = createStackNavigator({
     CommunityNavigation: { screen: Community}

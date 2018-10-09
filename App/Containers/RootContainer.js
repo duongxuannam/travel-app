@@ -6,9 +6,8 @@ import AppActions from '../Redux/AppRedux'
 import { Indicator } from '../Components'
 
 class RootContainer extends PureComponent {
-
-  getView() {
-    let { isReady } = this.props
+  getView = () => {
+    const { isReady } = this.props
     if (!isReady) {
       return null
     } else {
@@ -17,7 +16,7 @@ class RootContainer extends PureComponent {
   }
 
   render() {
-    const { isShowingIndicator } = this.props
+    const { isShowingIndicator, } = this.props
     return (
       <View style={{ flex: 1 }}>
         <StatusBar barStyle='dark-content' />
@@ -31,7 +30,7 @@ class RootContainer extends PureComponent {
 
 const mapStateToProps = (state) => ({
   isShowingIndicator: state.app.isShowingIndicator,
-  isReady: state.app.isReady,
+  isReady: state.app.isReady
 })
 const mapDispatchToProps = (dispatch) => ({
   hideIndicator: () => dispatch(AppActions.hideIndicator()),

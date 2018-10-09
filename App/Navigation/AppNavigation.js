@@ -1,8 +1,8 @@
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator,createStackNavigator } from 'react-navigation'
 import TabNavigation from './TabNavigation'
 
 // Manifest of possible screens
-const PrimaryNav = StackNavigator({
+const PrimaryNav = createStackNavigator({
   TabNavigation: { screen: TabNavigation},
 }, {
   // Default config for all screens

@@ -19,7 +19,8 @@ export default class NewsFeed extends PureComponent {
   render() {
     return (
       <ScrollableTabView >
-      <NewsFeedNew tabLabel="Mới nhất" />
+      <NewsFeedNew tabLabel="Mới nhất" navigation={this.props.navigation}
+/>
       <NewsFeedCategory tabLabel="Làm đẹp" />
       <NewsFeedCategory tabLabel="Giải trí" />
       <NewsFeedCategory tabLabel="Công nghệ" />
