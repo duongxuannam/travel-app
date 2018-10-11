@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react'
-import { TouchableWithoutFeedback, View } from 'react-native'
+import { TouchableWithoutFeedback, View,Text } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 import styles from './style'
+import { normalize } from '../../Themes/Metrics';
+import { Metrics,Colors } from '../..//Themes'
 
 class TabBar extends PureComponent {
 
@@ -17,6 +19,7 @@ class TabBar extends PureComponent {
       navigation,
       activeTintColor,
       inactiveTintColor,
+      getLabel,
       renderIcon } = this.props.configTabBar
     const currentIndex = _.get(navigationState, ['index'])
     return _.get(navigationState, ['routes']).map((route, index) => {
@@ -31,12 +34,18 @@ class TabBar extends PureComponent {
           <View
             style={styles.icon}
           >
+          
             {renderIcon({
               route,
               index,
               tintColor: currentIndex === index ? activeTintColor : inactiveTintColor,
               focused: currentIndex === index,
             })}
+            <Text style={{ marginTop:4,fontSize:normalize(10) ,color: currentIndex === index ? activeTintColor : inactiveTintColor,  }} >
+             {getLabel({
+              route
+            })}
+            </Text>
           </View>
         </TouchableWithoutFeedback>
       )
@@ -46,7 +55,13 @@ class TabBar extends PureComponent {
   render() {
     return (
       <View
-        style={styles.container}
+        style={{
+          flexDirection: 'row',
+          height: Metrics.screenHeight/11, alignItems:'center',
+          backgroundColor: Colors.white,
+          borderTopWidth:1,
+          borderTopColor:'#7B7B7B'
+        }}
       >
         {this.renderTabBar()}
       </View>
@@ -56,7 +71,6 @@ class TabBar extends PureComponent {
 
 const mapStateToProps = (state) => ({
 })
-
 const mapDispatchToProps = dispatch => ({
 })
 export default connect(mapStateToProps, mapDispatchToProps)(TabBar)

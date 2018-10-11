@@ -7,7 +7,6 @@ const SignInNav = createStackNavigator({
 }, {
   // Default config for all screens
   headerMode: 'float',
-  initialRouteName: 'SignInNavigation',
   navigationOptions: {
     // headerStyle: {
     //   backgroundColor: 'black',

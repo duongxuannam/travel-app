@@ -13,9 +13,10 @@ export default class Startup extends PureComponent {
   signIn = () => {
     this.props.navigation.navigate('SignInNavigation')
   }
-
+  signUp = () => {
+    this.props.navigation.navigate('SignUpNavigation')
+  }
   render() {
-    console.log('this.props ', this.props)
     return (
       <Swiper loop={false} style={{backgroundColor:Colors.white}}>
        <View style={{
@@ -46,7 +47,7 @@ export default class Startup extends PureComponent {
               textStyle={{ fontSize: normalize(20), color: Colors.primary}}
               label="Sign In"
             />
-            <Button onPress={this.login} style={{
+            <Button onPress={this.signUp} style={{
               marginHorizontal: normalize(30),
                marginTop: 15, borderColor: Colors.primary,
             }}

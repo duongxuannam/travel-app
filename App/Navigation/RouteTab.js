@@ -5,6 +5,17 @@ import Community from '../Containers/Community'
 import NewsFeed from '../Containers/NewsFeed'
 import User from '../Containers/User'
 import Video from '../Containers/Video'
+import Explore from '../Containers/Explore'
+import Activities from '../Containers/Activities'
+
+export const ExploreNavigation = createStackNavigator({
+  ExploreNavigation: { screen: Explore}
+})
+
+export const ActivitiesNavigation = createStackNavigator({
+  ActivitiesNavigation: { screen: Activities}
+})
+
 
 export const CommunityNavigation = createStackNavigator({
     CommunityNavigation: { screen: Community}

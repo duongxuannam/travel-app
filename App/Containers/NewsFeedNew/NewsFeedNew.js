@@ -84,7 +84,10 @@ data = [{ id: 1 }, { id: 2 }]
       </View>
     )
   }
- luuApp = () => this.props.luuApp()
+luuApp = () => this.props.luuApp()
+// luuApp = () => {
+//   console.log(':(((((, ',this.props)
+//   this.props.navigation.navigate('SignUpStep2Navigation')}
 
 
 render() {

@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation'
 import ForgotPasswordScreen from '../Containers/ForgotPassword'
 
 // Manifest of possible screens
-const SignInNav = createStackNavigator({
+const ForgotNav = createStackNavigator({
   ForgotPasswordNavigation: { screen: ForgotPasswordScreen },
 }, {
   // Default config for all screens
@@ -14,4 +14,4 @@ const SignInNav = createStackNavigator({
   },
 })
 
-export default SignInNav
+export default ForgotNav

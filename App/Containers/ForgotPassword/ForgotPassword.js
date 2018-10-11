@@ -59,8 +59,6 @@ export default class ForgotPassword extends PureComponent {
                 paddingVertical: normalize(13),
               }} />
           </View>
-
-
         </View>
 
         <View flex={1} >

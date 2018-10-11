@@ -12,7 +12,7 @@ export default class Avatar extends PureComponent {
         <View style={[style,{
            alignItems:'center',
            borderWidth: 1,
-           borderRadius: 40,
+           borderRadius: 35,
         paddingVertical: normalize(10)}]}>
           <Text style={[textStyle,{fontSize: normalize(15),fontWeight: 'bold' }]}>{label}</Text>
         </View>

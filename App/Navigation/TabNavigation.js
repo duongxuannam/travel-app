@@ -1,30 +1,34 @@
 import React from 'react'
 import { Image } from 'react-native'
 import { TabNavigator } from 'react-navigation'
-import { CommunityNavigation, NewsFeedNavigation, VideoNavigation, UserNavigation } from './RouteTab'
+import { ActivitiesNavigation, ExploreNavigation, VideoNavigation, UserNavigation } from './RouteTab'
 
 import  TabBar  from '../Containers/TabBar'
-import { Images } from '../Themes'
+import { Images,Colors } from '../Themes'
 
 const TabBarNavigation = TabNavigator({
-  NewsFeedNavigation: { screen: NewsFeedNavigation ,
+  ExploreNavigation: { screen: ExploreNavigation ,
     navigationOptions: ({ navigation }) => ({
+      tabBarLabel: 'Explore',
+
       tabBarIcon: ({ focused, tintColor }) => {
         return (<Image
           resizeMode='contain'
-          source={Images.newsfeed}
+          source={Images.explore}
           style={{ height: 26, width: 26, tintColor }}
-        />)
+        />) 
       },
     })
   },
-  CommunityNavigation: {
-    screen: CommunityNavigation,
+  ActivitiesNavigation: {
+    screen: ActivitiesNavigation,
     navigationOptions: ({ navigation }) => ({
+      tabBarLabel: 'Activities',
+
       tabBarIcon: ({ focused, tintColor }) => {
         return (<Image
           resizeMode='contain'
-          source={Images.community}
+          source={Images.activities}
           style={{ height: 26, width: 26, tintColor }}
         />)
       },
@@ -32,10 +36,12 @@ const TabBarNavigation = TabNavigator({
   },  
   VideoNavigation: { screen: VideoNavigation ,
     navigationOptions: ({ navigation }) => ({
+      tabBarLabel: 'My bookings',
+
       tabBarIcon: ({ focused, tintColor }) => {
         return (<Image
           resizeMode='contain'
-          source={Images.video}
+          source={Images.mybookings}
           style={{ height: 26, width: 26, tintColor }}
         />)
       },
@@ -43,6 +49,8 @@ const TabBarNavigation = TabNavigator({
   },
   UserNavigation: { screen: UserNavigation ,
     navigationOptions: ({ navigation }) => ({
+      tabBarLabel: 'My Accounts',
+
       tabBarIcon: ({ focused, tintColor }) => {
         return (<Image
           resizeMode='contain'
@@ -53,13 +61,13 @@ const TabBarNavigation = TabNavigator({
     })
   }
 }, {
-    initialRouteName: 'NewsFeedNavigation',
+    initialRouteName: 'ActivitiesNavigation',
     tabBarComponent: (config) => <TabBar configTabBar={config} />,
     tabBarPosition: 'bottom',
     headerMode: 'none',
     animationEnabled: true,
     tabBarOptions: {
-      activeTintColor: '#2CBCD4',
+      activeTintColor: Colors.primary,
       showLabel: true,
       showIcon: true,
       inactiveTintColor: '#7B7B7B',

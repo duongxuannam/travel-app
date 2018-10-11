@@ -10,5 +10,8 @@ export default{
     poll: require('../Assets/Images/poll.png'),
     like: require('../Assets/Images/likes.png'),
     love: require('../Assets/Images/love.png'),
-    comment: require('../Assets/Images/comment.png')
+    comment: require('../Assets/Images/comment.png'),
+    explore: require('../Assets/Images/exploreIcon.png'),
+    activities: require('../Assets/Images/destinations.png'),
+    mybookings: require('../Assets/Images/booking.png'),
   }
