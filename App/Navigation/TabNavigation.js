@@ -61,7 +61,7 @@ const TabBarNavigation = TabNavigator({
     })
   }
 }, {
-    initialRouteName: 'ActivitiesNavigation',
+    initialRouteName: 'ExploreNavigation',
     tabBarComponent: (config) => <TabBar configTabBar={config} />,
     tabBarPosition: 'bottom',
     headerMode: 'none',

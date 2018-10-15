@@ -19,16 +19,30 @@ export default class Startup extends PureComponent {
   render() {
     return (
       <Swiper loop={false} style={{backgroundColor:Colors.white}}>
-       <View style={{
+
+        <View style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+
+          <Text >1</Text>
+        </View>
+        <View style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <Text >2</Text>
+        </View>
+              <View style={{
           flex: 1,
         }}>
           <View style={{ flex: 1 }} >
-
             <View style={{
               position: 'absolute',
               top: normalize(10),
               right: normalize(10)
-
             }}>
               <TouchableOpacity style={{ padding: 10 }}
                 onPress={this.next} >
@@ -58,23 +72,6 @@ export default class Startup extends PureComponent {
 
           </View>
           </View> 
-        <View style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-
-          <Text >1</Text>
-        </View>
-        <View style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <Text >2</Text>
-        </View>
-
-       
       </Swiper>
     )
   }

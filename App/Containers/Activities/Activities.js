@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, FlatList } from 'react-native'
 import IonicIcon from 'react-native-vector-icons/Ionicons'
+import LinearGradient from 'react-native-linear-gradient'
 import { connect } from 'react-redux'
 import Swiper from 'react-native-swiper'
 import FastImage from 'react-native-fast-image'
@@ -44,7 +45,7 @@ class Activities extends PureComponent {
         <ScrollView showsVerticalScrollIndicator={false} style={{ marginHorizontal: normalize(20) }}>
 
           <View style={{
-            height: normalizeHeight(170), marginVertical: normalizeHeight(10)
+            height: normalizeHeight(150), marginVertical: normalizeHeight(10),
           }} >
             <FastImage
               style={{
@@ -168,34 +169,40 @@ class Activities extends PureComponent {
                 </Text>
               </View>
             </View>
-
-            <View style={{
-              height: normalizeHeight(170), marginVertical: normalizeHeight(10)
-            }} >
-              <FastImage
-                style={{
-                  height: '100%',
-                  width: '100%',
-                  borderRadius: 5
-                }}
-                source={{
-                  uri: 'https://unsplash.it/400/400?image=1',
-                }}
-                resizeMode={FastImage.resizeMode.stretch}
-              />
-              <View style={{ justifyContent: 'center', alignItems: 'center', position: 'absolute', bottom: normalizeHeight(15), right: 0, left: 0 }} >
-                <Text
-                  style={{
-                    marginHorizontal: normalize(15), color: Colors.white, fontSize: normalize(18), fontWeight: 'bold'
-                  }}>
-                  Team building</Text>
-              </View>
-
-            </View>
           </View>
+
+
+
+          <View style={{
+            height: normalizeHeight(150), marginVertical: normalizeHeight(10),
+          }} >
+                    <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} >
+
+            <FastImage
+              style={{
+                height: '100%',
+                width: '100%',
+                borderRadius: 5
+              }}
+              source={{
+                uri: 'https://unsplash.it/400/400?image=1',
+              }}
+              resizeMode={FastImage.resizeMode.stretch}
+            />
+            <View style={{ justifyContent: 'center', alignItems: 'center', position: 'absolute', bottom: normalizeHeight(15), right: 0, left: 0 }} >
+              <Text
+                style={{
+                  marginHorizontal: normalize(15), color: Colors.white, fontSize: normalize(18), fontWeight: 'bold'
+                }}>
+               Team Building</Text>
+            </View>
+            </LinearGradient>
+
+          </View>
+
+
           <Button
             style={{
-              marginTop: normalize(10),
               borderColor: '#F7F7F7',
               backgroundColor: '#F7F7F7'
             }}
@@ -295,7 +302,7 @@ class Activities extends PureComponent {
               </View>
             </View>
                </View> 
-                
+           
         </ScrollView>
             </View>
         )

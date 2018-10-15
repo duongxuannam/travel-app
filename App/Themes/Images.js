@@ -14,4 +14,11 @@ export default{
     explore: require('../Assets/Images/exploreIcon.png'),
     activities: require('../Assets/Images/destinations.png'),
     mybookings: require('../Assets/Images/booking.png'),
+    location: require('../Assets/Images/location.png'),
+    timeOpen: require('../Assets/Images/timeOpen.png'),
+    language: require('../Assets/Images/language.png'),
+    checkIn: require('../Assets/Images/checkIn.png'),
+    cancel : require('../Assets/Images/cancel.png'),
+    check : require('../Assets/Images/check.png')
+
   }

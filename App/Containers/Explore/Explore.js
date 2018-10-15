@@ -272,6 +272,7 @@ class Explore extends PureComponent {
 
 
           <View style={{
+             opacity: 0.5,
             height: normalizeHeight(220), marginVertical: normalizeHeight(10), marginHorizontal: normalize(20)
           }} >
             <FastImage
@@ -410,7 +411,7 @@ class Explore extends PureComponent {
           </Text>
             </View>
                   </View>
-                  <View style={{ flex: 1.5, marginLeft: normalize(10) }}>
+                  <View style={{ flex: 1.5, marginLeft: normalize(10), opacity: 0.7 }}>
                     <FastImage
                       style={{
                         height: '100%',
