@@ -19,6 +19,6 @@ export default{
     language: require('../Assets/Images/language.png'),
     checkIn: require('../Assets/Images/checkIn.png'),
     cancel : require('../Assets/Images/cancel.png'),
-    check : require('../Assets/Images/check.png')
-
+    check : require('../Assets/Images/check.png'),
+    message: require('../Assets/Images/messageCopy.png')
   }

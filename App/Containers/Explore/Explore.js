@@ -4,6 +4,7 @@ import IonicIcon from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 import Swiper from 'react-native-swiper'
 import FastImage from 'react-native-fast-image'
+import AppActions from '../../Redux/AppRedux'
 import { normalize, normalizeHeight } from '../../Themes/Metrics';
 import { Colors, Metrics } from '../../Themes'
 
@@ -193,19 +194,28 @@ class Explore extends PureComponent {
       </View>
     </View>
   )
+goTours = () => {
+  this.props.navigation.navigate("ActivitiesTypeNavigation")
+}
+luuApp = () => this.props.luuApp()
 
   render() {
+    console.log('tjos ', this.props)
     return (
       <View flex={1} style={{ backgroundColor: Colors.white }}>
         <ScrollView showsVerticalScrollIndicator={false}>
 
           <View style={{ marginHorizontal: normalize(20), height: normalizeHeight(350) }} >
-            <Text style={{
+           <TouchableOpacity onPress={this.luuApp}>
+           <Text style={{
               fontWeight: 'bold',
               fontSize: normalize(20), color: Colors.primary, marginVertical: normalize(10)
             }} >
-              Recommended</Text>
-            <View style={{ flex: 1 }}  >
+              Recommended
+              </Text>
+           </TouchableOpacity>
+           
+            {/* <View style={{ flex: 1 }}  >
               <Swiper autoplay
                 onIndexChanged={index => this.setState({ index })}
                 showsPagination={false}>
@@ -215,7 +225,7 @@ class Explore extends PureComponent {
               </Swiper>
               {this.renderPagination()}
 
-            </View>
+            </View> */}
           </View>
 
           <View style={{ height: normalizeHeight(150) }} >
@@ -386,6 +396,7 @@ class Explore extends PureComponent {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', marginTop: normalize(10) }}>
                   <View style={{ flex: 2, }}>
+                  <TouchableOpacity onPress={this.goTours}>
                     <FastImage
                       style={{
                         height: '100%',
@@ -410,6 +421,8 @@ class Explore extends PureComponent {
                 TOURS
           </Text>
             </View>
+            </TouchableOpacity>
+
                   </View>
                   <View style={{ flex: 1.5, marginLeft: normalize(10), opacity: 0.7 }}>
                     <FastImage
@@ -450,9 +463,14 @@ class Explore extends PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+  token: state
+})
+const mapDispatchToProps = (dispatch) => ({
+  luuApp: () => dispatch(AppActions.luuToken()),
+})
 
-
-export default connect(null, null)(Explore)
+export default connect(mapStateToProps, mapDispatchToProps)(Explore)
 
 
 

@@ -6,6 +6,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
 import { connect } from 'react-redux'
 import FastImage from 'react-native-fast-image'
 import Swiper from 'react-native-swiper'
+import MapView, { Marker } from 'react-native-maps';
 import { Button } from '../../Components'
 import { normalize, normalizeHeight } from '../../Themes/Metrics';
 import { Colors, Metrics, Images } from '../../Themes'
@@ -24,7 +25,38 @@ class ActivitiesDetail extends PureComponent {
     super(props)
     this.state = {
       index: 0,
-      seeMore: false
+      seeMore: false,
+
+      region: {
+        latitude: 10.925937010125281,
+        latitudeDelta: 0.04203643733102069,
+        longitude: 106.76560140906179,
+        longitudeDelta: 0.02499999999992042
+      },
+      markers: [
+        {
+          latlng: {
+            latitude: 10.925937010125281, longitude: 106.76560140906179,
+          },
+          description: 'nani'
+        },
+        {
+          latlng: {
+            latitude: 10.93008805303404, longitude: 106.76586430642884,
+          },
+          description: 'nani'
+
+        },
+        {
+          latlng: {
+            latitude: 10.930922878800757, longitude: 106.77173508791307
+          },
+          description: 'nani',
+          title: 'nani'
+
+        }
+      ],
+
     }
   }
   seeMore = () => {
@@ -100,6 +132,10 @@ class ActivitiesDetail extends PureComponent {
       </View>
     )
   }
+  goBack = ()=>{
+    console.log(this.props.navigation)
+    this.props.navigation.goBack(null)
+  }
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: Colors.white, }} >
@@ -110,44 +146,18 @@ class ActivitiesDetail extends PureComponent {
 
 
 
-            {/* <FastImage
-            style={{
-              height: '100%',
-              width: '100%',
-            }}
-            source={{
-              uri: 'https://unsplash.it/400/400?image=1',
-            }}
-            resizeMode={FastImage.resizeMode.stretch}
-          />
-          <View style={{ position: 'absolute', bottom: 10, paddingHorizontal: 10 }} >
-            <Text numberOfLines={2} style={{
-              color: '#fff',
-              fontSize: normalize(18),
-              fontWeight: 'bold',
-              marginBottom: 10,
-            }}>Hightline Food Tour</Text>
-            <Text numberOfLines={2} style={{
-              color: '#fff',
-              fontSize: normalize(13),
-              fontWeight: 'bold',
-              marginBottom: 10,
-            }}>Food and Culture Walking Tour</Text>
-          </View>
-          <View style={{ position: 'absolute', top: normalizeHeight(20), paddingHorizontal: 10 }} >
-          <IonicIcon name="md-arrow-back" color={Colors.white} size={normalize(30)} />
-          </View> */}
-
-
-
+        
 
             <View style={{
               position: 'absolute',
               zIndex: 10,
-              top: normalizeHeight(20),
+              top: normalizeHeight(25),
               paddingHorizontal: 10
             }} >
-              <IonicIcon name="md-arrow-back" color={Colors.white} size={normalize(30)} />
+            <TouchableOpacity onPress={this.goBack}>
+            <IonicIcon name="md-arrow-back" color={Colors.white} size={normalize(30)} />
+
+            </TouchableOpacity>
             </View>
             <Swiper autoplay
               onIndexChanged={index => this.setState({ index })}
@@ -566,6 +576,7 @@ class ActivitiesDetail extends PureComponent {
 
 
           <View style={{
+            marginTop: normalize(10),
             marginHorizontal: normalize(10),
           }} >
             <Text style={{ fontSize: normalize(18), fontWeight: 'bold' }} >
@@ -576,20 +587,193 @@ class ActivitiesDetail extends PureComponent {
               marginTop: normalize(10)
             }} >
 
+              <View style={{ flexDirection: 'row', height: normalizeHeight(180) }} >
+                <View style={{
+                  flex: 2,
+                  marginRight: normalize(10),
+                }} >
+                  <View style={{
+                    flex: 1, marginBottom: normalize(5),
+                    borderRadius: 5
+                  }} >
+                    <FastImage
+                      style={{
+                        height: '100%',
+                        width: '100%',
+                        borderRadius: 5
+                      }}
+                      source={{
+                        uri: 'https://unsplash.it/400/400?image=1',
+                      }}
+                      resizeMode={FastImage.resizeMode.stretch}
+                    />
+                  </View>
+                  <View style={{ flex: 1, marginTop: normalize(5), backgroundColor: 'blue' }} >
+                    <FastImage
+                      style={{
+                        height: '100%',
+                        width: '100%',
+                        borderRadius: 5
+                      }}
+                      source={{
+                        uri: 'https://unsplash.it/400/400?image=1',
+                      }}
+                      resizeMode={FastImage.resizeMode.stretch}
+                    />
+                  </View>
+                </View>
+                <View style={{ flex: 3 }} >
+                  <FastImage
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      borderRadius: 5
+                    }}
+                    source={{
+                      uri: 'https://unsplash.it/400/400?image=1',
+                    }}
+                    resizeMode={FastImage.resizeMode.stretch}
+                  />
+                </View>
+              </View>
+
+              <View style={{ height: normalizeHeight(80), flexDirection: 'row', marginTop: normalize(10) }}>
+                <View flex={1} style={{ marginRight: normalize(5) }}>
+                  <FastImage
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      borderRadius: 5
+                    }}
+                    source={{
+                      uri: 'https://unsplash.it/400/400?image=1',
+                    }}
+                    resizeMode={FastImage.resizeMode.stretch}
+                  />
+                </View>
+                <View flex={1} style={{ marginLeft: normalize(5) }}>
+                  <FastImage
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      borderRadius: 5
+                    }}
+                    source={{
+                      uri: 'https://unsplash.it/400/400?image=1',
+                    }}
+                    resizeMode={FastImage.resizeMode.stretch}
+                  />
+                </View>
+              </View>
+
+              <View style={{ flexDirection: 'row', height: normalizeHeight(180), marginTop: normalize(10) }} >
+                <View style={{ flex: 3 }} >
+                  <FastImage
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      borderRadius: 5
+                    }}
+                    source={{
+                      uri: 'https://unsplash.it/400/400?image=1',
+                    }}
+                    resizeMode={FastImage.resizeMode.stretch}
+                  />
+                </View>
+
+                <View style={{
+                  flex: 2,
+                  marginLeft: normalize(10),
+                }} >
+                  <View style={{
+                    flex: 1, marginBottom: normalize(5),
+                    borderRadius: 5
+                  }} >
+                    <FastImage
+                      style={{
+                        height: '100%',
+                        width: '100%',
+                        borderRadius: 5
+                      }}
+                      source={{
+                        uri: 'https://unsplash.it/400/400?image=1',
+                      }}
+                      resizeMode={FastImage.resizeMode.stretch}
+                    />
+                  </View>
+                  <View style={{ flex: 1, marginTop: normalize(5), backgroundColor: 'blue' }} >
+                    <FastImage
+                      style={{
+                        height: '100%',
+                        width: '100%',
+                        borderRadius: 5
+                      }}
+                      source={{
+                        uri: 'https://unsplash.it/400/400?image=1',
+                      }}
+                      resizeMode={FastImage.resizeMode.stretch}
+                    />
+                  </View>
+                </View>
+
+              </View>
+
             </View>
           </View>
 
 
           <View style={{
             marginHorizontal: normalize(10),
+            marginVertical: normalize(10)
           }} >
             <Text style={{ fontSize: normalize(18), fontWeight: 'bold' }} >
               Location
             </Text>
 
             <View style={{
-              marginTop: normalize(10)
+              marginTop: normalize(10),
+              height: normalizeHeight(220)
             }} >
+              <MapView
+                style={{ flex: 1 }}
+                region={this.state.region}
+                onRegionChange={this.onRegionChange}
+              >
+                {this.state.markers.map((marker,index) => (
+                  <Marker
+                  key={index}
+                    coordinate={marker.latlng}
+                    title={marker.title}
+                    description={marker.description}
+                  />
+                ))}
+
+                {/* <Marker draggable
+      coordinate={this.state.markerDrag}
+      // description={marker.description}
+      onDragEnd={(e) => this.setState({ markerDrag: e.nativeEvent.coordinate })}
+
+    /> */}
+
+
+              </MapView>
+
+<View style={{ 
+position:'absolute', 
+zIndex:100,
+left:normalize(10), 
+right:normalize(10), 
+bottom:normalize(10),
+backgroundColor:Colors.white, 
+justifyContent:'center',
+alignItems:'center',
+paddingVertical:normalizeHeight(10),
+borderRadius:5
+}} >
+<Text  style={{ fontWeight:'bold' }}> Chelsea Market/High Line </Text>
+<Text> Tour meets near 9 Ave. & 15th St. </Text>
+<Text> Exac location released upon booking </Text>
+</View>
 
             </View>
           </View>
@@ -606,9 +790,7 @@ class ActivitiesDetail extends PureComponent {
             <View style={{
               marginTop: normalize(20)
             }} >
-
               <View style={{ marginBottom: normalize(10) }} >
-
                 <View style={{ flexDirection: 'row' }} >
                   <View>
                     <Text style={{ fontSize: normalize(15), fontWeight: 'bold' }}>Alex Standall</Text>
@@ -617,7 +799,6 @@ class ActivitiesDetail extends PureComponent {
                     <Text style={{ fontSize: normalize(15) }}>7/3/2018</Text>
                   </View>
                 </View>
-
                 <View style={{ flexDirection: 'row', marginVertical: normalize(10) }} >
                   <View style={{ backgroundColor: Colors.primary, borderBottomLeftRadius: 5, borderTopLeftRadius: 5, padding: normalize(5) }} >
                     <Text style={{ fontSize: normalize(15), fontWeight: 'bold', color: Colors.white }}>4.3</Text>
@@ -645,7 +826,6 @@ class ActivitiesDetail extends PureComponent {
                     <Text style={{ fontSize: normalize(15) }}>7/3/2018</Text>
                   </View>
                 </View>
-
                 <View style={{ flexDirection: 'row', marginVertical: normalize(10) }} >
                   <View style={{ backgroundColor: Colors.primary, borderBottomLeftRadius: 5, borderTopLeftRadius: 5, padding: normalize(5) }} >
                     <Text style={{ fontSize: normalize(15), fontWeight: 'bold', color: Colors.white }}>4.3</Text>
@@ -654,7 +834,6 @@ class ActivitiesDetail extends PureComponent {
                     <Text style={{ fontSize: normalize(15), color: Colors.primary }}>Great</Text>
                   </View>
                 </View>
-
                 <View style={{ backgroundColor: Colors.defaultColorView, padding: normalize(10) }} >
                   <Text>
                     Mot doan van ban dai ngoang ngeo dai khai la danh gia cac kieu cd mdsak m fdmsf dm fejfn smdnf s
@@ -664,9 +843,8 @@ class ActivitiesDetail extends PureComponent {
               <TouchableOpacity>
                 <Text style={{ fontSize: normalize(17), color: Colors.black, textAlign: 'center', marginBottom: normalize(10) }} >
                   Read All Reviews
-  </Text>
+                </Text>
               </TouchableOpacity>
-
 
 
             </View>
@@ -685,14 +863,14 @@ class ActivitiesDetail extends PureComponent {
           <View style={{ flex: 2.5, justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{ fontSize: normalize(14) }}>$54.99 per person</Text>
             <View style={{ flexDirection: 'row', marginTop: normalizeHeight(2) }} >
-            <TouchableOpacity>
-              <FontAwesomeIcon name="minus-circle" color={Colors.violet} size={normalize(20)} />
+              <TouchableOpacity>
+                <FontAwesomeIcon name="minus-circle" color={Colors.violet} size={normalize(20)} />
               </TouchableOpacity>
               <View style={{ marginHorizontal: normalize(12) }} >
                 <Text style={{ fontSize: normalize(15), color: Colors.violet }}>3</Text>
               </View>
               <TouchableOpacity>
-              <FontAwesomeIcon name="plus-circle" color={Colors.violet} size={normalize(20)} />
+                <FontAwesomeIcon name="plus-circle" color={Colors.violet} size={normalize(20)} />
               </TouchableOpacity>
             </View>
           </View>

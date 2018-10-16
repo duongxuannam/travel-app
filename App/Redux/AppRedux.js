@@ -16,12 +16,11 @@ const { Types, Creators } = createActions({
   hideIndicator: null,
   language:null,
   luuApp: null,
-
+  luuToken: null
 })
 
 export const AppTypes = Types
 export default Creators
-
 
 export const INITIAL_STATE = Immutable({
   isReady: false,
@@ -29,13 +28,17 @@ export const INITIAL_STATE = Immutable({
   isShowingError: false,
   error: false,
   isShowingIndicator: false,
-  firstTime: true
-
+  firstTime: true,
+  token:'123'
 })
 
 const luuApp = (state) => {
   const  firstTime  = !state.firstTime
   return state.merge({ firstTime })
+}
+const luuToken = (state) => {
+  const token = !state.token
+  return state.merge({token})
 }
 
 const startupSuccess = (state) => {
@@ -82,5 +85,6 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.SHOW_INDICATOR]: showIndicator,
   [Types.HIDE_INDICATOR]: hideIndicator,
   [Types.LUU_APP]: luuApp,
+  [Types.LUU_TOKEN]: luuToken,
 
 })

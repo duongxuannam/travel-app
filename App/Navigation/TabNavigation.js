@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image } from 'react-native'
 import { TabNavigator } from 'react-navigation'
-import { ActivitiesNavigation, ExploreNavigation, VideoNavigation, UserNavigation } from './RouteTab'
+import { ActivitiesNavigation, ExploreNavigation, MyBookingsNavigation, AccountNavigation } from './RouteTab'
 
 import  TabBar  from '../Containers/TabBar'
 import { Images,Colors } from '../Themes'
@@ -34,7 +34,7 @@ const TabBarNavigation = TabNavigator({
       },
     })
   },  
-  VideoNavigation: { screen: VideoNavigation ,
+  MyBookingsNavigation: { screen: MyBookingsNavigation ,
     navigationOptions: ({ navigation }) => ({
       tabBarLabel: 'My bookings',
 
@@ -47,9 +47,9 @@ const TabBarNavigation = TabNavigator({
       },
     })
   },
-  UserNavigation: { screen: UserNavigation ,
+  AccountNavigation: { screen: AccountNavigation ,
     navigationOptions: ({ navigation }) => ({
-      tabBarLabel: 'My Accounts',
+      tabBarLabel: 'My Account',
 
       tabBarIcon: ({ focused, tintColor }) => {
         return (<Image
@@ -61,7 +61,7 @@ const TabBarNavigation = TabNavigator({
     })
   }
 }, {
-    initialRouteName: 'ExploreNavigation',
+    initialRouteName: 'MyBookingsNavigation',
     tabBarComponent: (config) => <TabBar configTabBar={config} />,
     tabBarPosition: 'bottom',
     headerMode: 'none',
