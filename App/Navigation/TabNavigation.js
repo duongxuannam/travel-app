@@ -59,7 +59,7 @@ const TabBarNavigation = TabNavigator({
     })
   }
 }, {
-    initialRouteName: 'AccountNavigation',
+    initialRouteName: 'ExploreNavigation',
     tabBarComponent: (config) => <TabBar configTabBar={config} />,
     lazy: true,
     tabBarPosition: 'bottom',

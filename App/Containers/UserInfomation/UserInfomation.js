@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import IonicIcon from 'react-native-vector-icons/Ionicons'
-import { Image, TextInputLabel, Badger } from '../../Components'
+import { CalendarList } from 'react-native-calendars'
+import moment from 'moment'
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import { Image, TextInputLabel, Badger, Button } from '../../Components'
 import { Images, Colors } from '../../Themes'
 import { normalize, normalizeHeight } from '../../Themes/Metrics';
 
@@ -20,16 +23,32 @@ export default class UserInfomation extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      pictureChoose: 0
+      pictureChoose: 0,
+      isDateTimePickerVisible: false,
+      date: new Date()
+
     }
   }
+
+  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+
+  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+  _handleDatePicked = (date) => {
+    this.setState({
+date
+    },this._hideDateTimePicker()
+  )
+  };
+
+
   setPictureChoose = (value) => () => {
     this.setState({
-      pictureChoose: value
+      pictureChoose: value,
     })
   }
   render() {
-    const { pictureChoose } = this.state
+    const { pictureChoose,date } = this.state
     return (
       <View style={{ backgroundColor: Colors.white, flex: 1, }}>
         <View style={{ flex: 1, marginHorizontal: normalize(10) }}>
@@ -107,35 +126,69 @@ export default class UserInfomation extends PureComponent {
                 color: Colors.brown, paddingVertical: normalize(13),
                 flex: 1
               }} >
-                Gender
+                Birthday
               </Text>
 
-             <View style={{ flex: 3, flexDirection: 'row', justifyContent:'center',alignItems:'center' }} >
-            <TextInput
-                    placeholder='MM/DD/YY'
-              style={{
-                marginLeft: normalize(10),
-                flex: 1,
-                paddingVertical: normalize(13),
-              }}
-            />
-             <View style={{ paddingLeft: normalize(10),  
-justifyContent:'center',alignItems:'center' }} >
-<TouchableOpacity>
-<IonicIcon name="ios-calendar" color={Colors.primary} size={normalize(30)} />
-  </TouchableOpacity>
+              <View style={{ flex: 3, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }} >
+                <TextInput
+                  placeholder='MM/DD/YYYY'
+                  disable
+                  value={ moment(date).format("MM/DD/YYYY")}
+
+                  style={{
+                    marginLeft: normalize(10),
+                    flex: 1,
+                    paddingVertical: normalize(13),
+                  }}
+                />
+                <View style={{
+                  paddingLeft: normalize(10),
+                  justifyContent: 'center', alignItems: 'center'
+                }} >
+                  <TouchableOpacity onPress={this._showDateTimePicker} >
+                    <IonicIcon name="ios-calendar" color={Colors.primary} size={normalize(30)} />
+                  </TouchableOpacity>
+                </View>
+               
+              </View>
+              
             </View>
-          </View>
 
-
-            </View>
-
-
-
+            <Text style={{marginTop:normalizeHeight(10),fontWeight:'bold', fontSize:normalize(12), color:Colors.brown }} >
+                  Enter your birthday to receive additional perks and benefits!
+                </Text>
           </View>
 
         </View>
+        <View style={{ position:'absolute', bottom:normalizeHeight(5), right:0, left:0 }} >
+<Button label='Save'  style={{
+  borderColor:Colors.primary,
+ backgroundColor:Colors.primary,
+ marginHorizontal:normalize(10)
+}} 
+textStyle={{ color:Colors.white }}
+/> 
+          </View>
+        <DateTimePicker
+        maximumDate={new Date()}
+        date={this.state.date}
+                isVisible={this.state.isDateTimePickerVisible}
+                onConfirm={this._handleDatePicked}
+                onCancel={this._hideDateTimePicker}
+              />
       </View>
+
+
+      // {/* <ScrollView>
+
+      //       <View style={{flex:1 }} >
+      //       <CalendarList 
+      //       // current={'2018-10-19'} 
+      //        futureScrollRange={2} />
+
+      //       </View>
+      // </ScrollView> */}
+
     );
   }
 }

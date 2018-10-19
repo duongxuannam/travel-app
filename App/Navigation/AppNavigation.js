@@ -6,7 +6,10 @@ import SignUpNavigation from './SignUpNavigation'
 import ActivitiesTypeNavigation from './ActivitiesTypeNavigation'
 import ActivitiesDetailNavigation from './ActivitiesDetailNavigation'
 import LogInNavigation from './LogInNavigation'
-import UserNavigation from './UserNavigation'
+import {UserNavigation,PersonalizeNavigation, PaymentNavigation, 
+  HelpCenterNavigation
+,PromotionNavigation,AccountSettingeNavigation
+} from './UserNavigation'
 
 // Manifest of possible screens
 const PrimaryNav = createStackNavigator({
@@ -17,8 +20,12 @@ const PrimaryNav = createStackNavigator({
   ActivitiesTypeNavigation: {screen:ActivitiesTypeNavigation},
   ActivitiesDetailNavigation:{screen:ActivitiesDetailNavigation},
   LogInNavigation:{screen:LogInNavigation},
-  UserInfomationNavigation: { screen: UserNavigation }
-
+  UserInfomationNavigation: { screen: UserNavigation },
+  PersonalizeNavigation:{screen :PersonalizeNavigation},
+  PaymentNavigation:{screen:PaymentNavigation},
+  HelpCenterNavigation:{screen:HelpCenterNavigation},
+  PromotionNavigation: { screen: PromotionNavigation },
+  AccountSettingeNavigation:{screen :AccountSettingeNavigation}
 
 }, {
   // Default config for all screens

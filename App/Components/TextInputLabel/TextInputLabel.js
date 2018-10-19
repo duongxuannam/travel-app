@@ -5,23 +5,29 @@ import { Colors } from '../../Themes'
 import { normalize } from '../../Themes/Metrics'
 
 export default class TextInputLabel extends PureComponent {
+  static defaultProps = {
+  flexLabel:1,
+  flexInput:3,
+  }
+
   render() {
     const { 
-      keyboardType, label, password,
+      keyboardType, label, password,flexLabel, flexInput,
        showIcon, checkIcon, onChange,style,placeholder } = this.props
     if (password) {
       return (
         <View style={[{
           borderBottomWidth: 1,
           borderColor: '#D5D3D3',
-          flexDirection: 'row'
+          flexDirection: 'row',alignItems:'center'
         },style]} >
           <Text style={{
-            color: Colors.brown, paddingVertical: normalize(13), flex: 1
+            color: Colors.brown, paddingVertical: normalize(13),
+             flex: flexLabel
           }} >
             {label}
           </Text>
-          <View style={{ flex: 3, flexDirection: 'row' }} >
+          <View style={{ flex: flexInput, flexDirection: 'row' }} >
             <TextInput
                     placeholder={placeholder}
               secureTextEntry
@@ -45,11 +51,11 @@ export default class TextInputLabel extends PureComponent {
       <View style={[{
         borderBottomWidth: 1,
         borderColor: '#D5D3D3',
-        flexDirection: 'row'
+        flexDirection: 'row',alignItems:'center'
       },style]} >
         <Text style={{
           color: Colors.brown, paddingVertical: normalize(13),
-          flex: 1
+          flex: flexLabel
         }} >
           {label}
         </Text>
@@ -58,7 +64,7 @@ export default class TextInputLabel extends PureComponent {
           keyboardType={keyboardType}
           style={{
             marginLeft: normalize(10),
-            flex: 3,
+            flex: flexInput,
             paddingVertical: normalize(13),
           }} />
       </View>

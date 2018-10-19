@@ -49,27 +49,36 @@ export default class Account extends PureComponent {
             }}
               fontSize={normalize(20)}
               showRightArrow label='Personalize' icon={Images.additionalInfo} 
-              onPress={this.moveScreen('UserInfomationNavigation')} />
+              onPress={this.moveScreen('PersonalizeNavigation')} />
             <TextInfo
               fontSize={normalize(20)}
               style={{ borderBottomColor: Colors.brown, borderBottomWidth: 1
                 ,paddingVertical:normalize(8)
-              }} showRightArrow label='Payment Infomation' icon={Images.payment} />
+              }} showRightArrow label='Payment Infomation' icon={Images.payment} 
+              onPress={this.moveScreen('PaymentNavigation')}
+              />
             <TextInfo
               fontSize={normalize(20)}
               style={{ borderBottomColor: Colors.brown, borderBottomWidth: 1
                 ,paddingVertical:normalize(8)
-              }} showRightArrow label='Promotion Code' icon={Images.promotion} />
+              }} showRightArrow label='Promotion Code' icon={Images.promotion}
+              onPress={this.moveScreen('PromotionNavigation')}
+
+              />
             <TextInfo
               fontSize={normalize(20)}
               style={{ borderBottomColor: Colors.brown, borderBottomWidth: 1,
                 paddingVertical:normalize(8)
-              }} showRightArrow label='Account Settings' icon={Images.accountSetting} />
+              }} showRightArrow label='Account Settings' icon={Images.accountSetting}
+              onPress={this.moveScreen('AccountSettingNavigation')}
+              />
             <TextInfo
               fontSize={normalize(20)}
               style={{ borderBottomColor: Colors.brown, borderBottomWidth: 1
                 ,paddingVertical:normalize(8)
-              }} showRightArrow label='Help Center' icon={Images.helpCenter} />
+              }} showRightArrow label='Help Center' icon={Images.helpCenter}
+              onPress={this.moveScreen('HelpCenterNavigation')}
+              />
 
             <View style={{ flex: 1, justifyContent: 'flex-end', }}>
               <TextInfo
