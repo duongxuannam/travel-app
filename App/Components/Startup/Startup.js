@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import Swiper from 'react-native-swiper'
 import Button from '../Button'
-import { Colors, Metrics } from '../../Themes'
+import Image from '../Image'
+import { Colors, Images } from '../../Themes'
 import { normalize } from '../../Themes/Metrics'
 
 export default class Startup extends PureComponent {
@@ -17,28 +18,27 @@ export default class Startup extends PureComponent {
     this.props.navigation.navigate('SignUpNavigation')
   }
   render() {
+    console.log('redender')
     return (
       <Swiper loop={false} style={{backgroundColor:Colors.white}}>
-
         <View style={{
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-
-          <Text >1</Text>
+        <Image uri={Images.startup} />
         </View>
         <View style={{
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-          <Text >2</Text>
+        <Image uri={Images.startup2} />
         </View>
               <View style={{
           flex: 1,
         }}>
-          <View style={{ flex: 1 }} >
+          <View style={{ flex: 1, justifyContent:'center', alignItems:'center' }} >
             <View style={{
               position: 'absolute',
               top: normalize(10),
@@ -51,7 +51,8 @@ export default class Startup extends PureComponent {
                 </Text>
               </TouchableOpacity>
             </View>
-
+            <Image uri={Images.logostartup} style={{ height:normalize(55), width:normalize(200) }} />
+            <Image uri={Images.curatedByMillennia} style={{ height:normalize(35),width:normalize(120), marginTop:normalize(20) }} />
           </View>
           <View style={{ flex: 1 }} >
             <Button onPress={this.signIn} style={{
@@ -68,8 +69,6 @@ export default class Startup extends PureComponent {
               textStyle={{ color: Colors.primary }}
               label="Join"
             />
-
-
           </View>
           </View> 
       </Swiper>

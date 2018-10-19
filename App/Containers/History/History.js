@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Text, View, TouchableOpacity, ScrollView, FlatList } from 'react-native';
-import FastImage from 'react-native-fast-image'
-
-import { Images, Colors } from '../../Themes'
+import { Badger, Image } from '../../Components'
+import {  Colors, Images } from '../../Themes'
 import { normalize, normalizeHeight } from '../../Themes/Metrics'
 
 data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
@@ -22,8 +21,9 @@ export default class MyBookings extends PureComponent {
         borderBottomWidth: 1, borderBottomColor: Colors.grey
       }} >
         <View style={{
-          flex: 2,
+          flex: 2,justifyContent:'center', alignItems:'center'
         }} >
+        <Image uri={Images.badgerLogo} height={normalize(60)} width={normalize(40)}/>
 
         </View>
         <View style={{
@@ -41,20 +41,14 @@ export default class MyBookings extends PureComponent {
         </View>
         <View style={{ flex: 1.7, alignItems: 'center', 
         marginTop: normalize(4) }}>
-          <View style={{
-            paddingHorizontal:normalize(10), paddingVertical:normalize(5),
-             borderRadius:5, backgroundColor:Colors.grey
-          }} >
-          <Text style={{ color:Colors.white, fontSize:normalize(11) }} >
-            Expired
-          </Text>
-          </View>
+          <Badger  label='Expired' backgroundColor={Colors.grey} color={Colors.white}/>
 
         </View>
       </View>
     </TouchableOpacity>
-
   );
+  _keyExtractor =(item, index) => index.toString()
+
   render() {
     return (
       <ScrollView flex={1} style={{ backgroundColor: Colors.white }}  >

@@ -20,5 +20,19 @@ export default{
     checkIn: require('../Assets/Images/checkIn.png'),
     cancel : require('../Assets/Images/cancel.png'),
     check : require('../Assets/Images/check.png'),
-    message: require('../Assets/Images/messageCopy.png')
+    message: require('../Assets/Images/messageCopy.png'),
+    additionalInfo: require('../Assets/Images/additionalInfo.png'),
+    caratIcon: require('../Assets/Images/caratIconCopy3.png'),
+    payment: require('../Assets/Images/payment.png'),
+    promotion: require('../Assets/Images/promotionCode.png'),
+    accountSetting: require('../Assets/Images/accountSettings.png'),
+    helpCenter: require('../Assets/Images/helpCenter.png'),
+    logOut: require('../Assets/Images/logOut.png'),
+    startup: require('../Assets/Images/startup.jpg'),
+    startup2: require('../Assets/Images/startup2.jpg'),
+    logostartup: require('../Assets/Images/logostartup.png'),
+    curatedByMillennia: require('../Assets/Images/curatedByMillennia.png'),
+    badgerLogo: require('../Assets/Images/badgerLogo.png'),
+    edit: require('../Assets/Images/edit.png')
+
   }

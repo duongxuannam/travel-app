@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native'
 import IonicIcon from 'react-native-vector-icons/Ionicons'
-import { connect } from 'react-redux' 
+import { connect } from 'react-redux'
 import AppActions from '../../Redux/AppRedux'
-import { Button } from '../../Components'
+import { Button, TextInputLabel } from '../../Components'
 import { normalize } from '../../Themes/Metrics';
 import { Colors } from '../../Themes'
 
@@ -18,12 +18,12 @@ class SignUp extends PureComponent {
       </TouchableOpacity>)
     }
   }
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state= {
+    this.state = {
       bestPrice: false,
       quality: false,
-      luxury:false
+      luxury: false
     }
   }
   goMain = () => {
@@ -54,82 +54,44 @@ class SignUp extends PureComponent {
               color: Colors.brown, fontSize: normalize(15), marginTop: normalize(15),
             }} >
               OFFERING PREFERENCE        </Text>
-            <Button 
-            onPress={()=> this.setState({ bestPrice:!bestPrice })}
-            style={{
-              marginTop: normalize(15),
-              backgroundColor: bestPrice ? Colors.success : Colors.white,
-              borderColor:  bestPrice ? Colors.white : Colors.red,
-            }}
+            <Button
+              onPress={() => this.setState({ bestPrice: !bestPrice })}
+              style={{
+                marginTop: normalize(15),
+                backgroundColor: bestPrice ? Colors.success : Colors.white,
+                borderColor: bestPrice ? Colors.white : Colors.red,
+              }}
               textStyle={{ color: bestPrice ? Colors.white : Colors.red }}
               label="Best Price" />
-            <Button 
-            onPress={()=> this.setState({ quality:!quality })}
-            style={{
-              marginTop: normalize(15),
-              backgroundColor: quality ? Colors.success : Colors.white,
-              borderColor: quality ? Colors.white : Colors.red,
-            }}
+            <Button
+              onPress={() => this.setState({ quality: !quality })}
+              style={{
+                marginTop: normalize(15),
+                backgroundColor: quality ? Colors.success : Colors.white,
+                borderColor: quality ? Colors.white : Colors.red,
+              }}
               textStyle={{ color: quality ? Colors.white : Colors.red }}
               label="Quality & Value" />
-            <Button 
-                        onPress={()=> this.setState({ luxury:!luxury })}
-
-            style={{
-              marginTop: normalize(15),
-              backgroundColor: luxury ? Colors.success : Colors.white,
-              borderColor: luxury ? Colors.white : Colors.red,
-            }}
+            <Button
+              onPress={() => this.setState({ luxury: !luxury })}
+              style={{
+                marginTop: normalize(15),
+                backgroundColor: luxury ? Colors.success : Colors.white,
+                borderColor: luxury ? Colors.white : Colors.red,
+              }}
               textStyle={{ color: luxury ? Colors.white : Colors.red }}
               label="Luxury" />
-            <View style={{
-              borderBottomWidth: 1,
-              borderColor: '#D5D3D3',
-              flexDirection: 'row',
-              marginTop: normalize(10)
-            }} >
-              <Text style={{
-                color: Colors.brown, paddingVertical: normalize(13),
-                flex: 1
-              }} >
-                Country
-          </Text>
-              <TextInput
-                style={{
-                  marginLeft: normalize(10),
-                  flex: 3,
-                  paddingVertical: normalize(13),
-                }} />
-            </View>
-
-            <View style={{
-              borderBottomWidth: 1,
-              borderColor: '#D5D3D3',
-              flexDirection: 'row'
-            }} >
-              <Text style={{
-                color: Colors.brown, paddingVertical: normalize(13),
-                flex: 1
-              }} >
-                Job Industry
-          </Text>
-              <TextInput
-                style={{
-                  marginLeft: normalize(20),
-                  flex: 3,
-                  paddingVertical: normalize(13),
-                }} />
-            </View>
-
+            <TextInputLabel label="Country" style={{ marginTop:normalize(10) }} />
+            <TextInputLabel label="Job Industry" />
             <Text style={{ color: Colors.brown, fontSize: normalize(15), marginVertical: normalize(15) }} >
               We offer exclusive activities for users from different countries and job industries!        </Text>
-
-            <Button 
-            onPress={this.goMain}
-            style={{
-              backgroundColor: Colors.primary,
-              borderColor: Colors.primary,
-            }}
+            <Button
+              onPress={this.goMain}
+              style={{
+                backgroundColor: Colors.primary,
+                borderColor: Colors.primary,
+                marginBottom: normalize(15)
+              }}
               textStyle={{ color: Colors.white }}
               label="Join" />
 

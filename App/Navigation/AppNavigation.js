@@ -6,6 +6,7 @@ import SignUpNavigation from './SignUpNavigation'
 import ActivitiesTypeNavigation from './ActivitiesTypeNavigation'
 import ActivitiesDetailNavigation from './ActivitiesDetailNavigation'
 import LogInNavigation from './LogInNavigation'
+import UserNavigation from './UserNavigation'
 
 // Manifest of possible screens
 const PrimaryNav = createStackNavigator({
@@ -15,7 +16,9 @@ const PrimaryNav = createStackNavigator({
   SignUpNavigation: {screen:SignUpNavigation},
   ActivitiesTypeNavigation: {screen:ActivitiesTypeNavigation},
   ActivitiesDetailNavigation:{screen:ActivitiesDetailNavigation},
-  LogInNavigation:{screen:LogInNavigation}
+  LogInNavigation:{screen:LogInNavigation},
+  UserInfomationNavigation: { screen: UserNavigation }
+
 
 }, {
   // Default config for all screens

@@ -2,7 +2,6 @@ import React from 'react'
 import { Image } from 'react-native'
 import { TabNavigator } from 'react-navigation'
 import { ActivitiesNavigation, ExploreNavigation, MyBookingsNavigation, AccountNavigation } from './RouteTab'
-
 import  TabBar  from '../Containers/TabBar'
 import { Images,Colors } from '../Themes'
 
@@ -10,7 +9,6 @@ const TabBarNavigation = TabNavigator({
   ExploreNavigation: { screen: ExploreNavigation ,
     navigationOptions: ({ navigation }) => ({
       tabBarLabel: 'Explore',
-
       tabBarIcon: ({ focused, tintColor }) => {
         return (<Image
           resizeMode='contain'
@@ -61,8 +59,9 @@ const TabBarNavigation = TabNavigator({
     })
   }
 }, {
-    initialRouteName: 'MyBookingsNavigation',
+    initialRouteName: 'AccountNavigation',
     tabBarComponent: (config) => <TabBar configTabBar={config} />,
+    lazy: true,
     tabBarPosition: 'bottom',
     headerMode: 'none',
     animationEnabled: true,
@@ -75,10 +74,7 @@ const TabBarNavigation = TabNavigator({
         backgroundColor: '#fff',
       },
     },
-    navigationOptions: () => ({
-      headerMode: 'none',
-
-    }),
+ 
 
   })
 

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native'
 import IonicIcon from 'react-native-vector-icons/Ionicons'
-import { Button } from '../../Components'
+import { Button, TextInputLabel } from '../../Components'
 import { normalize } from '../../Themes/Metrics';
 import { Colors } from '../../Themes'
 
@@ -40,25 +40,8 @@ export default class ForgotPassword extends PureComponent {
         </Text>
         </View>
         <View flex={1}>
-          <View style={{
-            marginHorizontal: normalize(25),
-            borderBottomWidth: 1,
-            borderColor: '#D5D3D3',
-            flexDirection: 'row'
-          }} >
-            <Text style={{
-              color: Colors.brown, paddingVertical: normalize(13),
-            }} >
-              E-mail
-          </Text>
-            <TextInput
-            keyboardType='email-address'
-              style={{
-                marginLeft: normalize(10),
-                flex: 1,
-                paddingVertical: normalize(13),
-              }} />
-          </View>
+     <TextInputLabel label="Email" style={{marginHorizontal: normalize(25),
+}} />
         </View>
 
         <View flex={1} >

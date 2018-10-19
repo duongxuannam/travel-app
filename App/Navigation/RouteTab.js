@@ -8,27 +8,24 @@ import MyBookings from '../Containers/MyBookings'
 import History from '../Containers/History'
 
 export const ExploreNavigation = createStackNavigator({
-  ExploreNavigation: { screen: Explore }
+  Explore: { screen: Explore }
 })
 
 export const ActivitiesNavigation = createStackNavigator({
-  ActivitiesNavigation: { screen: Activities }
+  Activities: { screen: Activities }
 })
 
 
 export const AccountNavigation = createStackNavigator({
-  AccountNavigation: { screen: Account }
+  Account: { screen: Account},
 })
+  
 
 export const MyBookingsNavigation = createStackNavigator({
-  MyBookingsNavigation: {
-    screen: MyBookings,
-  },
-  HistoryNavigation:{
-    screen: History
-  }
+  MyBookings: {screen: MyBookings},
+  HistoryNavigation:{ screen: History }
 },{
-  initialRouteName: 'MyBookingsNavigation',
+  initialRouteName: 'MyBookings',
 
 }
 )

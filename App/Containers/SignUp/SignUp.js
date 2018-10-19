@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native'
 import IonicIcon from 'react-native-vector-icons/Ionicons'
-import { Button } from '../../Components'
+import { Button, TextInputLabel } from '../../Components'
 import { normalize } from '../../Themes/Metrics';
 import { Colors } from '../../Themes'
 
@@ -16,9 +16,9 @@ export default class SignUp extends PureComponent {
       </TouchableOpacity>)
     }
   }
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state= {
+    this.state = {
       password: '',
       confirm: ''
     }
@@ -38,90 +38,30 @@ export default class SignUp extends PureComponent {
         </View>
 
         <View flex={1}>
-          <View style={{
-            marginHorizontal: normalize(25),
-            borderBottomWidth: 1,
-            borderColor: '#D5D3D3',
-            flexDirection: 'row'
-          }} >
-            <Text style={{
-              color: Colors.brown, paddingVertical: normalize(13),
-              flex: 1
-            }} >
-              E-mail
-          </Text>
-            <TextInput
-              keyboardType='email-address'
-              style={{
-                marginLeft: normalize(10),
-                flex: 3,
-                paddingVertical: normalize(13),
-              }} />
-          </View>
 
-          <View style={{
-            marginHorizontal: normalize(25),
-            borderBottomWidth: 1,
-            borderColor: '#D5D3D3',
-            flexDirection: 'row'
-          }} >
-            <Text style={{
-              color: Colors.brown, paddingVertical: normalize(13), flex: 1
-            }} >
-              Password
-          </Text>
-            <TextInput
-              secureTextEntry
-              style={{
-                marginLeft: normalize(10),
-                flex: 3,
-                paddingVertical: normalize(13),
-              }} 
-              onChangeText = {(password)=>this.setState({password})}             
-              />
-          </View>
-
-          <View style={{
-            marginHorizontal: normalize(25),
-            borderBottomWidth: 1,
-            borderColor: '#D5D3D3',
-            flexDirection: 'row'
-          }} >
-            <Text style={{
-              color: Colors.brown, paddingVertical: normalize(13), flex: 1
-            }} >
-              Confirm
-          </Text>
-            <TextInput
-              secureTextEntry
-              style={{
-                marginLeft: normalize(10),
-                flex: 3,
-                paddingVertical: normalize(13),
-              }}
-              onChangeText = {(confirm)=>this.setState({confirm})}             
-              />
-              <View style={{ alignSelf:'flex-end', paddingLeft:normalize(10) }} >
-{checkIcon && <IonicIcon name="ios-checkmark" color={Colors.success} size={normalize(30)} />
-}
-              </View>
-
-          </View>
-
-
+          <TextInputLabel label="E-mail" style={{marginHorizontal: normalize(25)}}
+          />
+          <TextInputLabel label="Password" style={{marginHorizontal: normalize(25)}}
+            password
+            onChange={(password) => this.setState({ password })}
+          />
+          <TextInputLabel
+          style={{marginHorizontal: normalize(25)}}
+            label="Confirm"
+            password
+            showIcon
+            checkIcon={checkIcon}
+            onChange={(confirm) => this.setState({ confirm })}
+          />
         </View>
-
-
-
-
         <View flex={1} >
-          <Button 
-          onPress={this.SignUpStep2}
-          style={{
-            backgroundColor: Colors.primary,
-            borderColor: Colors.primary,
-            marginHorizontal: normalize(30),
-          }}
+          <Button
+            onPress={this.SignUpStep2}
+            style={{
+              backgroundColor: Colors.primary,
+              borderColor: Colors.primary,
+              marginHorizontal: normalize(30),
+            }}
             textStyle={{ color: Colors.white }}
             label="Next" />
         </View>
