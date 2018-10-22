@@ -13,7 +13,7 @@ const StartupNav = createStackNavigator({
   SignUpNavigation: {screen: SignUpScreen}
 }, {
   // Default config for all screens
-  headerMode: 'none',
+  headerMode: 'none', 
   navigationOptions: {
     // headerStyle: {
     //   backgroundColor: 'black',

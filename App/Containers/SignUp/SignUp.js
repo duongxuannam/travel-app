@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native'
 import IonicIcon from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Button, TextInputLabel } from '../../Components'
 import UserActions from '../../Redux/UserRedux'
 import { checkEmaill } from '../../Services/validator'
@@ -94,7 +95,9 @@ class SignUp extends PureComponent {
     const checkIcon = confirm === password && confirm !== '' ? true : false
     return (
       <View flex={1} style={{ backgroundColor: Colors.white }}>
-        <View style={{ justifyContent: 'center', marginTop: normalizeHeight(50), marginBottom: normalizeHeight(20) }} >
+         <KeyboardAwareScrollView>
+
+    <View style={{ justifyContent: 'center', marginTop: normalizeHeight(50), marginBottom: normalizeHeight(20) }} >
           <Text style={{ fontSize: normalize(30), textAlign: 'center' }} >
             Sign Up
         </Text>
@@ -174,6 +177,8 @@ class SignUp extends PureComponent {
             textStyle={{ color: Colors.white }}
             label="Next" />
         </View>
+        </KeyboardAwareScrollView>
+
       </View >
     )
   }

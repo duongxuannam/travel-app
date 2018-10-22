@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import IonicIcon from 'react-native-vector-icons/Ionicons'
 import { Button, TextInputCustom } from '../../Components'
 import { checkEmaill } from '../../Services/validator'
@@ -82,6 +83,8 @@ class SignIn extends PureComponent {
     const { password, email, errorEmail, errorPassword, errorServer } = this.state
     return (
       <View flex={1} style={{ backgroundColor: Colors.white }}>
+      <KeyboardAwareScrollView>
+
         <View style={{ justifyContent: 'center', marginVertical: normalizeHeight(40) }} >
           <Text style={{ fontSize: normalize(30), textAlign: 'center' }} >
             Sign In
@@ -93,9 +96,11 @@ class SignIn extends PureComponent {
             borderBottomWidth: 1,
             borderColor: '#D5D3D3',
           }}
+          keyboardType="email-address"
+          returnKeyType='next'
             onChange={email => {
               this.setState(
-                { email, errorServer: '' }
+                { email,  errorServer: '' }
                 , () => {
                   if (!checkEmaill(this.state.email)) {
                     this.setState({ errorEmail: 'Email is not format' });
@@ -150,6 +155,8 @@ class SignIn extends PureComponent {
             textStyle={{ color: Colors.white }}
             label="Sign In" />
         </View>
+        </KeyboardAwareScrollView>
+
       </View >
     )
   }
