@@ -20,13 +20,14 @@ export default class TextInputCustom extends PureComponent {
   render() {
     const { readPassword } = this.state
     const icon = !readPassword ? 'md-eye' : 'md-eye-off'
-    const { style, placeHolder, password, showIcon } = this.props
+    const { style, placeHolder, password, showIcon, onChange } = this.props
     if (password) {
       return (
         <View style={[{
           flexDirection: 'row'
         }, style]} >
           <TextInput placeholder={placeHolder}
+          onChangeText={onChange}
             secureTextEntry={!readPassword}
             placeholderTextColor={Colors.brown}
             style={{
@@ -46,7 +47,7 @@ export default class TextInputCustom extends PureComponent {
       }, style]} >
         <TextInput placeholder={placeHolder}
           placeholderTextColor={Colors.brown}
-
+          onChangeText={onChange}
           style={{
             paddingVertical: normalize(13),
 

@@ -6,6 +6,7 @@ import SignUpNavigation from './SignUpNavigation'
 import ActivitiesTypeNavigation from './ActivitiesTypeNavigation'
 import ActivitiesDetailNavigation from './ActivitiesDetailNavigation'
 import LogInNavigation from './LogInNavigation'
+import ForgotPasswordScreen from './ForgotPasswordNavigation'
 import {UserNavigation,PersonalizeNavigation, PaymentNavigation, 
   HelpCenterNavigation
 ,PromotionNavigation,AccountSettingeNavigation
@@ -25,7 +26,8 @@ const PrimaryNav = createStackNavigator({
   PaymentNavigation:{screen:PaymentNavigation},
   HelpCenterNavigation:{screen:HelpCenterNavigation},
   PromotionNavigation: { screen: PromotionNavigation },
-  AccountSettingeNavigation:{screen :AccountSettingeNavigation}
+  AccountSettingeNavigation:{screen :AccountSettingeNavigation},
+  ForgotPasswordNavigation: { screen: ForgotPasswordScreen },
 
 }, {
   // Default config for all screens

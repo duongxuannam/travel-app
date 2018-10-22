@@ -42,7 +42,7 @@ headerLeft: (<TouchableOpacity onPress={() => navigation.goBack(null)}>
           }} >
             Promotion Code
           </Text>
-          <View style={{ flex: 1.5, flexDirection: 'row' }} >
+          <View style={{ flex: 1.5, flexDirection: 'row', alignItems:'center' }} >
             <TextInput
               style={{
                 marginLeft: normalize(10),
@@ -51,7 +51,7 @@ headerLeft: (<TouchableOpacity onPress={() => navigation.goBack(null)}>
               }}
             />
             <TouchableOpacity>
-          <View style={{ alignSelf: 'flex-end', paddingLeft: normalize(10) }} >
+          <View style={{ alignSelf: 'flex-end', paddingLeft: normalize(10),justifyContent:'center' }} >
              <IonicIcon name="ios-close" color={Colors.brown} size={normalize(30)} />
             </View>
             </TouchableOpacity>

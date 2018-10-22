@@ -23,7 +23,6 @@ export default class Description extends PureComponent {
         <View style={[{
           marginHorizontal: normalize(10),
           marginTop: normalize(10),
-
         }, this.state.seeMore ? {} : { height: normalizeHeight(160) }]} >
 
           <Text style={{ fontSize: normalize(18), fontWeight: 'bold' }} >

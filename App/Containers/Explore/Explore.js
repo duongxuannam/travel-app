@@ -87,8 +87,8 @@ const mapStateToProps = (state) => ({
   token: state
 })
 const mapDispatchToProps = (dispatch) => ({
-  // luuApp: () => dispatch(AppActions.luuToken()),
-  luuApp: () => dispatch(AppActions.luuApp()),
+  // luuApp: () => dispatch(AppActions.saveToken()),
+  luuApp: () => dispatch(AppActions.hideStartup()),
 
 })
 

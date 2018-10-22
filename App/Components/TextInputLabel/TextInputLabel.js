@@ -12,7 +12,7 @@ export default class TextInputLabel extends PureComponent {
 
   render() {
     const { 
-      keyboardType, label, password,flexLabel, flexInput,
+      keyboardType, label, password,flexLabel, flexInput,value,
        showIcon, checkIcon, onChange,style,placeholder } = this.props
     if (password) {
       return (
@@ -29,7 +29,9 @@ export default class TextInputLabel extends PureComponent {
           </Text>
           <View style={{ flex: flexInput, flexDirection: 'row' }} >
             <TextInput
-                    placeholder={placeholder}
+            value={value}
+            placeholder={placeholder}
+            keyboardType={keyboardType}
               secureTextEntry
               style={{
                 marginLeft: normalize(10),
@@ -62,6 +64,7 @@ export default class TextInputLabel extends PureComponent {
         <TextInput
         placeholder={placeholder}
           keyboardType={keyboardType}
+          onChangeText={onChange}
           style={{
             marginLeft: normalize(10),
             flex: flexInput,

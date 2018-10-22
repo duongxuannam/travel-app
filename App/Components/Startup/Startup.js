@@ -9,7 +9,7 @@ import { normalize } from '../../Themes/Metrics'
 export default class Startup extends PureComponent {
 
   next = () => {
-    this.props.luuApp()
+    this.props.skip()
   }
   signIn = () => {
     this.props.navigation.navigate('SignInNavigation')
@@ -18,7 +18,6 @@ export default class Startup extends PureComponent {
     this.props.navigation.navigate('SignUpNavigation')
   }
   render() {
-    console.log('redender')
     return (
       <Swiper loop={false} style={{backgroundColor:Colors.white}}>
         <View style={{

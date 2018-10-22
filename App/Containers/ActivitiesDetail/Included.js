@@ -16,7 +16,9 @@ export default class Included extends PureComponent {
         marginVertical: normalize(15),
         paddingBottom: normalize(15),
         borderBottomWidth: 0.8,
-        borderBottomColor: Colors.brown
+        borderBottomColor: Colors.brown,
+        backgroundColor:Colors.white
+
       }} >
         <Text style={{ fontSize: normalize(18), fontWeight: 'bold' }} >
           What's Included

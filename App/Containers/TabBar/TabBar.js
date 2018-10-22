@@ -11,7 +11,7 @@ class TabBar extends PureComponent {
 
   static propTypes = {
     configTabBar: PropTypes.object,
-    token:PropTypes.bool,
+    token:PropTypes.string,
   }
   renderTabBar = () => {
     const {
@@ -24,7 +24,6 @@ class TabBar extends PureComponent {
     const currentIndex = _.get(navigationState, ['index'])
     const paramMybooking = { title:'My Bookings', description:'View your activity bookings' }
     const paramMyAccount = { title:'My Account', description:'Sign In or Join' }
-
     return _.get(navigationState, ['routes']).map((route, index) => {
       return (
         <TouchableWithoutFeedback
@@ -78,8 +77,7 @@ class TabBar extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  token: !!state.app.token,
-
+  token: _.get(state, [ 'user','token'])
 })
 const mapDispatchToProps = dispatch => ({
   dispatch,

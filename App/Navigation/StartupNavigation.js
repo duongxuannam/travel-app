@@ -10,7 +10,6 @@ const StartupNav = createStackNavigator({
   StartupNavigation: { screen: StartupScreen },
   SignInNavigation: { screen: SignInScreen },
   ForgotPasswordNavigation: { screen: ForgotPasswordScreen },
-  ForgotPasswordNavigation: { screen: ForgotPasswordScreen },
   SignUpNavigation: {screen: SignUpScreen}
 }, {
   // Default config for all screens

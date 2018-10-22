@@ -14,7 +14,7 @@ export default class Footer extends PureComponent {
         bottom: 0,
         left: 0,
         right: 0,
-        borderTopWidth: 2,
+        borderTopWidth: 1,
         borderTopColor: Colors.brown,
         flexDirection: 'row'
       }} >

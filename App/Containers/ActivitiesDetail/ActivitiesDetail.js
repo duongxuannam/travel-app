@@ -11,7 +11,7 @@ import Picture from './Picture'
 import Location from './Location';
 import Review from './Review'
 import Footer from './Footer'
-import { normalize, } from '../../Themes/Metrics';
+import { normalize, normalizeHeight, } from '../../Themes/Metrics';
 import { Colors, Metrics } from '../../Themes'
 
 data = [{ id: 1 }, { id: 2 }, { id: 3 }]
@@ -33,7 +33,7 @@ class ActivitiesDetail extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: Colors.white, }} >
 
-        <ScrollView style={{ marginBottom: normalize(50) }}>
+        <ScrollView style={{ marginBottom: normalizeHeight(50) }}>
           <StatusBar barStyle="light-content" />
           {/* swiper */}
           <Swiper data={data} goBack={this.goBack} />

@@ -47,7 +47,7 @@ export default class PopularActivitiesType extends PureComponent {
             <View style={{ flex: 1 }}>
               <TouchableOpacity onPress={goTours}>
                 <Image uri={{ uri: 'https://unsplash.it/400/400?image=1' }} />
-                <TextInImage style={{ alignItems: 'center' }} >
+                <TextInImage style={{right:0,left:0, bottom:0 }} >
                   <Text
                     style={{
                       color: Colors.white, fontSize: normalize(15), fontWeight: 'bold',
@@ -62,21 +62,21 @@ export default class PopularActivitiesType extends PureComponent {
               <View style={{ flex: 2, }}>
                 <TouchableOpacity onPress={goTours}>
                   <Image uri={{ uri: 'https://unsplash.it/400/400?image=1' }} />
-                  <TextInImage style={{ alignItems: 'center' }} >
+                  <TextInImage style={{ right:0,left:0, bottom:0  }} >
                     <Text
                       style={{
                         color: Colors.white, fontSize: normalize(15), fontWeight: 'bold',
                         padding: normalizeHeight(10)
                       }}>
-                      TOUR
+                      TOUR 
             </Text>
                   </TextInImage>
                 </TouchableOpacity>
               </View>
-              <View style={{ flex: 1.5, marginLeft: normalize(10), opacity: 0.7 }}>
+              <View style={{ flex: 1.5, marginLeft: normalize(10) }}>
                 <TouchableOpacity onPress={goTours}>
                   <Image uri={{ uri: 'https://unsplash.it/400/400?image=1' }} />
-                  <TextInImage style={{ alignItems: 'center', top: 0, justifyContent: 'center' }} >
+                  <TextInImage style={{ right:0,left:0, top:0,bottom:0, justifyContent:'center' }} >
                     <Text
                       style={{
                         color: Colors.white, fontSize: normalize(15), fontWeight: 'bold',
