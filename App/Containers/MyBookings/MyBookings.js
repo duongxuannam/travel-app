@@ -11,6 +11,11 @@ data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
 export default class MyBookings extends PureComponent {
   static navigationOptions = ({ navigation }) => {
     return {
+      headerTitle: <View>
+      <Text style={{ fontSize: normalize(20), fontWeight: 'bold', color: Colors.black }}>
+      My Bookings   
+       </Text>
+      </View>,
       headerRight: (
         <TouchableOpacity onPress={() => navigation.navigate('HistoryNavigation')}>
           <Text style={{ paddingHorizontal: 10 }} >
@@ -67,10 +72,6 @@ export default class MyBookings extends PureComponent {
   render() {
     return (
       <ScrollView flex={1} style={{ backgroundColor: Colors.white }}  >
-        <Text style={{
-          marginVertical: normalize(10),
-          textAlign: 'center', fontSize: normalize(22), fontWeight: 'bold', color: Colors.black
-        }}>My Bookings</Text>
         <View style={{ marginHorizontal: normalize(10) }} >
 
           <FlatList

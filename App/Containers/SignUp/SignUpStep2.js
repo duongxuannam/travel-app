@@ -32,7 +32,8 @@ class SignUp extends PureComponent {
   }
   
   hideStartup = () => {
-    this.props.hideStartup()
+    this.props.hideStartup();
+    this.props.navigation.navigate('TabNavigation')
   }
 
   render() {

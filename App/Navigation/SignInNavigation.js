@@ -4,6 +4,7 @@ import SignInScreen from '../Containers/SignIn'
 // Manifest of possible screens
 const SignInNav = createStackNavigator({
   SignInNavigation: { screen: SignInScreen },
+
 }, {
   // Default config for all screens
   headerMode: 'float',

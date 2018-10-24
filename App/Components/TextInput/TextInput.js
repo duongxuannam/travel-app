@@ -55,7 +55,7 @@ export default class TextInputCustom extends PureComponent {
           onChangeText={onChange}
           style={{
             paddingVertical: normalize(13),
-
+            flex:1
           }} />
       </View>
 

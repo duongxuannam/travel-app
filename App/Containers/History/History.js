@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Text, View, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 import { Badger, Image } from '../../Components'
-import {  Colors, Images } from '../../Themes'
+import { Colors, Images } from '../../Themes'
 import { normalize, normalizeHeight } from '../../Themes/Metrics'
 
 data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
@@ -10,6 +10,11 @@ data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
 export default class MyBookings extends PureComponent {
   static navigationOptions = ({ navigation }) => {
     return {
+      headerTitle: <View>
+      <Text style={{ fontSize: normalize(20), fontWeight: 'bold', color: Colors.black }}>
+      History   
+       </Text>
+      </View>,
     }
   }
   _renderItem = ({ item }) => (
@@ -21,9 +26,9 @@ export default class MyBookings extends PureComponent {
         borderBottomWidth: 1, borderBottomColor: Colors.grey
       }} >
         <View style={{
-          flex: 2,justifyContent:'center', alignItems:'center'
+          flex: 2, justifyContent: 'center', alignItems: 'center'
         }} >
-        <Image uri={Images.badgerLogo} height={normalize(60)} width={normalize(40)}/>
+          <Image uri={Images.badgerLogo} height={normalize(60)} width={normalize(40)} />
 
         </View>
         <View style={{
@@ -39,23 +44,22 @@ export default class MyBookings extends PureComponent {
             Museum o
 </Text>
         </View>
-        <View style={{ flex: 1.7, alignItems: 'center', 
-        marginTop: normalize(4) }}>
-          <Badger  label='Expired' backgroundColor={Colors.grey} color={Colors.white}/>
+        <View style={{
+          flex: 1.7, alignItems: 'center',
+          marginTop: normalize(4)
+        }}>
+          <Badger label='Expired' backgroundColor={Colors.grey} color={Colors.white} />
 
         </View>
       </View>
     </TouchableOpacity>
   );
-  _keyExtractor =(item, index) => index.toString()
+  _keyExtractor = (item, index) => index.toString()
 
   render() {
     return (
       <ScrollView flex={1} style={{ backgroundColor: Colors.white }}  >
-        <Text style={{
-          marginVertical: normalize(10),
-          textAlign: 'center', fontSize: normalize(22), fontWeight: 'bold', color: Colors.black
-        }}>History</Text>
+   
         <View style={{ marginHorizontal: normalize(10) }} >
 
           <FlatList

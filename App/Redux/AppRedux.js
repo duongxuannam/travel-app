@@ -16,6 +16,8 @@ const { Types, Creators } = createActions({
   hideIndicator: null,
   language:null,
   hideStartup: null,
+  showStartup: null,
+
 })
 
 export const AppTypes = Types
@@ -31,10 +33,13 @@ export const INITIAL_STATE = Immutable({
 })
 
 const hideStartup = (state) => {
-  const  firstTime  = !state.firstTime
+  const  firstTime  = false
   return state.merge({ firstTime })
 }
-
+const showStartup = (state) => {
+  const  firstTime  = true
+  return state.merge({ firstTime })
+}
 const startupSuccess = (state) => {
   return state.merge({ isReady: true })
 }
@@ -79,5 +84,6 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.SHOW_INDICATOR]: showIndicator,
   [Types.HIDE_INDICATOR]: hideIndicator,
   [Types.HIDE_STARTUP]: hideStartup,
+  [Types.SHOW_STARTUP]: showStartup,
 
 })

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import IonicIcon from 'react-native-vector-icons/Ionicons'
@@ -74,7 +75,10 @@ class SignIn extends PureComponent {
       password, email
     }
     this.props.signInRequest(params,
-      () => this.props.luuApp()
+       () =>   {
+         console.log('lai loi');
+         this.props.navigation.navigate('TabNavigation');
+         console.log('nua roi')}
       , (errorServer) => this.setState({ errorServer }))
   }
 
@@ -83,78 +87,78 @@ class SignIn extends PureComponent {
     const { password, email, errorEmail, errorPassword, errorServer } = this.state
     return (
       <View flex={1} style={{ backgroundColor: Colors.white }}>
-      <KeyboardAwareScrollView>
+        <KeyboardAwareScrollView>
 
-        <View style={{ justifyContent: 'center', marginVertical: normalizeHeight(40) }} >
-          <Text style={{ fontSize: normalize(30), textAlign: 'center' }} >
-            Sign In
+          <View style={{ justifyContent: 'center', marginVertical: normalizeHeight(40) }} >
+            <Text style={{ fontSize: normalize(30), textAlign: 'center' }} >
+              Sign In
         </Text>
-        </View>
-        <View style={{ marginBottom: normalizeHeight(40) }}>
-          <TextInputCustom style={{
-            marginHorizontal: normalize(25),
-            borderBottomWidth: 1,
-            borderColor: '#D5D3D3',
-          }}
-          keyboardType="email-address"
-          returnKeyType='next'
-            onChange={email => {
-              this.setState(
-                { email,  errorServer: '' }
-                , () => {
-                  if (!checkEmaill(this.state.email)) {
-                    this.setState({ errorEmail: 'Email is not format' });
-                    if (this.state.email === '') {
-                      this.setState({ errorEmail: 'Email is require' })
-                    }
-                  } else {
-                    this.setState({ errorEmail: '' })
-                  }
-                })
+          </View>
+          <View style={{ marginBottom: normalizeHeight(40) }}>
+            <TextInputCustom style={{
+              marginHorizontal: normalize(25),
+              borderBottomWidth: 1,
+              borderColor: '#D5D3D3',
             }}
-            placeHolder="Email" />
-          {!!errorEmail && this.renderErrorEmail()}
-          <TextInputCustom style={{
-            marginHorizontal: normalize(25),
-            borderBottomWidth: 1,
-            borderColor: '#D5D3D3',
-          }}
-            placeHolder="Password"
-            showIcon
-            password
-            onChange={password => {
-              this.setState(
-                { password, errorServer: '' }
-                , () => {
-                  if (this.state.password.length < 5) {
-                    this.setState({ errorPassword: 'Password is least 5 characters' });
-                    if (this.state.password === '') {
-                      this.setState({ errorPassword: 'Password is require' })
+              keyboardType="email-address"
+              returnKeyType='next'
+              onChange={email => {
+                this.setState(
+                  { email, errorServer: '' }
+                  , () => {
+                    if (!checkEmaill(this.state.email)) {
+                      this.setState({ errorEmail: 'Email is not format' });
+                      if (this.state.email === '') {
+                        this.setState({ errorEmail: 'Email is require' })
+                      }
+                    } else {
+                      this.setState({ errorEmail: '' })
                     }
-                  } else {
-                    this.setState({ errorPassword: '' })
-                  }
-                })
+                  })
+              }}
+              placeHolder="Email" />
+            {!!errorEmail && this.renderErrorEmail()}
+            <TextInputCustom style={{
+              marginHorizontal: normalize(25),
+              borderBottomWidth: 1,
+              borderColor: '#D5D3D3',
             }}
-          />
-          {!!errorPassword && this.renderErrorPassword()}
-          {!!errorServer && this.renderErrorServer()}
-          <TouchableOpacity
-            onPress={this.forgotPassword}
-            style={{ alignItems: 'flex-end', marginTop: normalize(10), marginRight: normalize(25) }}>
-            <Text style={{ color: Colors.red }} >Forgot password</Text>
-          </TouchableOpacity>
-        </View>
-        <View flex={1} >
-          <Button style={{
-            backgroundColor: Colors.primary,
-            borderColor: Colors.primary,
-            marginHorizontal: normalize(30),
-          }}
-            onPress={this.signInRequest}
-            textStyle={{ color: Colors.white }}
-            label="Sign In" />
-        </View>
+              placeHolder="Password"
+              showIcon
+              password
+              onChange={password => {
+                this.setState(
+                  { password, errorServer: '' }
+                  , () => {
+                    if (this.state.password.length < 5) {
+                      this.setState({ errorPassword: 'Password is least 5 characters' });
+                      if (this.state.password === '') {
+                        this.setState({ errorPassword: 'Password is require' })
+                      }
+                    } else {
+                      this.setState({ errorPassword: '' })
+                    }
+                  })
+              }}
+            />
+            {!!errorPassword && this.renderErrorPassword()}
+            {!!errorServer && this.renderErrorServer()}
+            <TouchableOpacity
+              onPress={this.forgotPassword}
+              style={{ alignItems: 'flex-end', marginTop: normalize(10), marginRight: normalize(25) }}>
+              <Text style={{ color: Colors.red }} >Forgot password</Text>
+            </TouchableOpacity>
+          </View>
+          <View flex={1} >
+            <Button style={{
+              backgroundColor: Colors.primary,
+              borderColor: Colors.primary,
+              marginHorizontal: normalize(30),
+            }}
+              onPress={this.signInRequest}
+              textStyle={{ color: Colors.white }}
+              label="Sign In" />
+          </View>
         </KeyboardAwareScrollView>
 
       </View >
@@ -163,7 +167,6 @@ class SignIn extends PureComponent {
 }
 const mapDispatchToProps = (dispatch) => ({
   luuApp: () => dispatch(AppActions.luuApp()),
-
   signInRequest: (params, actionSuccess, actionFailure) => dispatch(UserActions.signInRequest(params, actionSuccess, actionFailure)),
 })
 

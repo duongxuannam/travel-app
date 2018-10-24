@@ -48,6 +48,7 @@ export function* signInRequest(actions) {
     yield put(UserActions.signInSuccess(user))
     yield put(AppActions.hideStartup())
     yield put(AppActions.hideIndicator())
+    actionSuccess && actionSuccess()
     setAuthorizationToken(user.token)
   } catch (error) {
     actionFailure && actionFailure( _.get(error, [ 'data','message']))

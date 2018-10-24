@@ -80,8 +80,8 @@ export default class Swiper extends PureComponent {
   render() {
     const {goBack} = this.props
     return (
-      <View style={{ height: normalizeHeight(190) }} >
-        <View style={{
+      <View style={{ height: normalizeHeight(200) }} >
+        {/* <View style={{
           position: 'absolute',
           zIndex: 10,
           top: normalizeHeight(25),
@@ -91,7 +91,7 @@ export default class Swiper extends PureComponent {
             <IonicIcon name="md-arrow-back" color={Colors.white} size={normalize(30)} />
 
           </TouchableOpacity>
-        </View>
+        </View> */}
         <Swipe autoplay
           onIndexChanged={index => this.setState({ index })}
           showsPagination={false}>
